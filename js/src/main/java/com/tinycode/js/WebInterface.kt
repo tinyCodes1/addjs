@@ -96,9 +96,13 @@ class WebInterface(private var context: Context) {
         return JSONObject().put(returnKey, listReturn).toString()
     }
 
+    /**
+     * @param {String} uriString - string uri of single file and not of folder.
+     * @return JSON object which has name, type, uri and file content in base64string format.
+     */
     @JavascriptInterface
-    fun getFile(uriStr: String): String? {
-        val uri = Uri.parse(uriStr)
+    fun getFile(uriString: String): String? {
+        val uri = Uri.parse(uriString)
         val file = DocumentFile.fromSingleUri(context, uri)
         return if (file?.isFile == true) {
             val fileInputStream = context.contentResolver.openInputStream(file.uri)
@@ -114,12 +118,22 @@ class WebInterface(private var context: Context) {
         } else null
     }
 
+    /**
+     * Starts an activity to select a folder.
+     * Result should be get via getData(saveAs: String)
+     * @see WebInterface.getData
+     * @param {Activity} activity - The calling activity that will start the folder selection activity.
+     * @param {string} saveAs - A string saveAs to identify the result when it's returned.
+     *
+     * @example
+     * selectFolder(this@MainActivity, "selectedFolder");
+     */
     @JavascriptInterface
-    fun selectDirectory(key: String) {
+    fun selectDirectory(saveAs: String) {
         Handler(Looper.getMainLooper()).post {
             val activity = context as? Activity
             if (activity != null) {
-                FolderSelection.selectFolder(activity, key)
+                FolderSelection.selectFolder(activity, saveAs)
             }
         }
     }

@@ -1,16 +1,24 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+  //  alias(libs.plugins.androidLibrary)
+ //   alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.android.library")
+    id("kotlin-android")
     id("maven-publish")
 }
+
+group = "org.tinycode"
+version = "1.2"
+
 
 android {
     namespace = "com.tinycode.js"
     compileSdk = 34
 
     defaultConfig {
+        aarMetadata {
+            minCompileSdk = 26
+        }
         minSdk = 26
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -41,9 +49,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.androidx.documentfile)
+    implementation(libs.gson)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
 }
-
-
 
 
 afterEvaluate {
@@ -52,9 +64,9 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "com.github.jitpack"
+                groupId = "com.github.tinyCodes1"
                 artifactId = "js"
-                version = "1.1"
+                version = "1.2"
             }
         }
     }

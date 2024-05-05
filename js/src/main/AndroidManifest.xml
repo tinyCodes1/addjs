@@ -5,7 +5,6 @@
 
     <application>
         <activity android:name=".SelectionActivity">
-            <!-- You can add additional attributes here if needed -->
         </activity>
     </application>
 </manifest>

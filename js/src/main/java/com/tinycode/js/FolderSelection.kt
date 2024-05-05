@@ -9,15 +9,16 @@ import android.widget.Toast
 
 object FolderSelection {
     const val REQUEST_SELECT_FOLDER = 123
-    fun selectFolder(activity: Activity, key: String) {
+
+    fun selectFolder(activity: Activity, saveAs: String) {
         val intent = Intent(activity, SelectionActivity::class.java)
-        intent.putExtra("key", key)
+        intent.putExtra("saveAs", saveAs)
         activity.startActivityForResult(intent, REQUEST_SELECT_FOLDER)
     }
 }
 
 class SelectionActivity : Activity() {
-    val FRQ = FolderSelection.REQUEST_SELECT_FOLDER
+    private val FRQ = FolderSelection.REQUEST_SELECT_FOLDER
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val key = this.intent.getStringExtra("key")
