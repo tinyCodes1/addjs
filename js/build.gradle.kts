@@ -53,7 +53,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.jitpack"
-                artifactId = "addjs"
+                artifactId = "js"
                 version = "1.1"
             }
         }
