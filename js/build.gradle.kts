@@ -4,9 +4,11 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("maven-publish")
+
 }
 
-group = "org.tinycode"
+
+group = "com.github.tinyCodes1"
 version = "1.2"
 
 
@@ -65,7 +67,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.tinyCodes1"
-                artifactId = "js"
+                artifactId = "addjs"
                 version = "1.2"
             }
         }
