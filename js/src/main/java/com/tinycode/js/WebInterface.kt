@@ -19,6 +19,7 @@ fun saveDataLocally(context: Context, key: String, value: String) {
 }
 
 class WebInterface(private var context: Context) {
+
     private fun checkUri(uri: Uri) {
         uri.let { uriTemp ->
             context.contentResolver.takePersistableUriPermission(

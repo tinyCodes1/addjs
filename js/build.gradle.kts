@@ -43,6 +43,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
+
+
+
 afterEvaluate {
     publishing {
         publications {
@@ -51,7 +54,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.jitpack"
                 artifactId = "addjs"
-                version = "1.0"
+                version = "1.1"
             }
         }
     }
