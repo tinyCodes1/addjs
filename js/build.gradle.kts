@@ -93,7 +93,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.tinyCodes1"
-                artifactId = "js"
+                artifactId = "addjs"
                 version = "1.3"
             }
         }
