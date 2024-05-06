@@ -21,9 +21,9 @@ class SelectionActivity : Activity() {
     private val FRQ = FolderSelection.REQUEST_SELECT_FOLDER
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val key = this.intent.getStringExtra("key")
+        val key = this.intent.getStringExtra("saveAs")
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-        intent.putExtra("key", key)
+        intent.putExtra("saveAs", key)
         startActivityForResult(intent, FRQ)
     }
 
@@ -31,7 +31,7 @@ class SelectionActivity : Activity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == FRQ) {
             if (resultCode == RESULT_OK) {
-                val key = this.intent.getStringExtra("key")
+                val key = this.intent.getStringExtra("saveAs")
                 val uri: Uri? = data.data
                 uri?.let { uriTemp ->
                     contentResolver.takePersistableUriPermission(

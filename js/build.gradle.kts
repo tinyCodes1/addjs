@@ -10,7 +10,7 @@ plugins {
 
 
 group = "com.github.tinyCodes1"
-version = "1.3"
+version = "1.5"
 
 
 
@@ -94,7 +94,8 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.tinyCodes1"
                 artifactId = "addjs"
-                version = "1.3"
+                version = "1.5"
+
             }
         }
     }
