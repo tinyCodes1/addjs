@@ -1,4 +1,3 @@
-
 plugins {
     //  alias(libs.plugins.androidLibrary)
     //   alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -8,20 +7,14 @@ plugins {
 
 }
 
-
 group = "com.github.tinyCodes1"
-version = "1.5"
-
-
+version = "v1.7"
 
 android {
     namespace = "com.tinycode.js"
     compileSdk = 34
 
     defaultConfig {
-        /*   aarMetadata {
-               minCompileSdk = 26
-           }*/
         minSdk = 26
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -47,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -57,33 +50,29 @@ android {
 }
 
 
-
 dependencies {
 
-    implementation("androidx.compose.ui:ui-graphics:1.6.7")
-    implementation("androidx.documentfile:documentfile:1.0.1")
-    implementation("androidx.compose.ui:ui:1.6.7")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.6.7")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.6.7")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.documentfile)
+    implementation(libs.androidx.ui)
+    debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.kotlin.stdlib.jdk7)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0")
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.material3)
+    androidTestImplementation(libs.androidx.ui.test.junit4.desktop)
+    debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation("androidx.compose:compose-bom:2024.05.00")
-    androidTestImplementation("androidx.compose:compose-bom:2024.05.00")
-    implementation("androidx.compose.material3:material3:1.2.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4-desktop:1.6.7")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.7")
-
-    implementation("androidx.core:core-ktx:1.13.1")
-    testImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.6.7")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
+    implementation(libs.androidx.core.ktx)
+    testImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.androidx.espresso.core)
 
 }
-
 
 
 afterEvaluate {
@@ -94,8 +83,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.tinyCodes1"
                 artifactId = "addjs"
-                version = "1.5"
-
+                version = "v1.7"
             }
         }
     }

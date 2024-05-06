@@ -78,9 +78,11 @@ class WebInterface(private var context: Context) {
                 ) dir.name?.let {
                     list.put(it, dir.uri)
                 }
-            } else if (dir.isDirectory && recursive) {
-                dir.listFiles().forEach { childFile ->
-                    listFilesInner(childFile, list)
+            } else if (dir.isDirectory) {
+                if (recursive) {
+                    dir.listFiles().forEach { childFile ->
+                        listFilesInner(childFile, list)
+                    }
                 }
             } else {
                 show("Error in listing files.")
