@@ -19,7 +19,7 @@ jobs:
           deno-version: '1.x'
 
       - name: Run Deno script
-        run: deno run --allow-read --allow-write update-readme.ts
+        run: deno run --allow-read --allow-write ./.github/scripts/update-readme.ts
         env:
           VERSION: ${{ steps.get_version.outputs.VERSION }}
 
