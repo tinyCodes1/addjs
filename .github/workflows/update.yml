@@ -20,14 +20,14 @@ jobs:
 
       - name: Get variables
         id: ref
-        run: Output="GITHUB=$GITHUB_REF"
+        run: echo "GITHUB_REF=$GITHUB_REF" >> $GITHUB_ENV
 
       - name: check value of output
-        run: echo value of output is $Output
+        run: echo value of output is $GITHUB_REF
 
 
       - name: Run Deno script
         run: deno run --allow-read --allow-run --allow-write --allow-env .github/scripts/update_readme.ts
         env:
-          VERSION: $Output
+          VERSION: Output
 
