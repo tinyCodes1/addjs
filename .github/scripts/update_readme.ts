@@ -7,6 +7,6 @@ if (ref) {
 
     let readmeContent: string = Deno.readTextFileSync('readme.md');
 console.log(readmeContent);
-    readmeContent = readmeContent.replace(/:addjs:v\d+\.\d+/g, `:addjs:${version}`) ;
+    readmeContent = readmeContent.replace(/:addjs:v.*\..*\"/g, `:addjs:${version}`) ;
     Deno.writeTextFileSync('readme.md', readmeContent);
 }
