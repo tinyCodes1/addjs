@@ -1,10 +1,13 @@
-const output: string | undefined = Deno.env.get('OUTPUT');
+const version: string | undefined = Deno.env.get('VERSION');
 
 
-if (output) {
-console.log(`output is: ${output.toString()} ... type: ${typeof output}`);
- const version = output.replace("/refs/tags/", "")
-console.log(`version: ` + output.replace("/refs/tags/", ""))
+const args = Deno.args[0];
+console.log(`args is : ` + args) ;
+
+if (version) {
+ const versionNo = version.replace("/refs/tags/", "")
+console.log(`output is: ${versionNo} ... type: ${typeof versionNo}`);
+console.log(`version: ` + versionNo.replace("/refs/tags/", ""))
 
 console.log(`current directory is : ${Deno.cwd()}`);
 
