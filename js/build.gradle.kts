@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.github.tinyCodes1"
-version = "v1.7"
+version = "v1.8"
 
 android {
     namespace = "com.tinycode.js"
@@ -83,7 +83,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.tinyCodes1"
                 artifactId = "addjs"
-                version = "v1.7"
+                version = "v1.8"
             }
         }
     }
