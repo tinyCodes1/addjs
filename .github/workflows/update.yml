@@ -22,6 +22,10 @@ jobs:
         run: ls -a -l 
 
 
+      - name: Extract version tag
+        id: get_version
+        run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/}"
+
       - name: Run Deno script
         run: deno run --allow-read --allow-write --allow-env .github/scripts/update_readme.ts
         env:
