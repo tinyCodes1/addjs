@@ -8,7 +8,7 @@ if (!version) {
 
 let readmeContent: string = readFileSync('README.md', { encoding: 'utf8' });
 
-readmeContent = readmeContent.replace(/Current version: .*/, `Current version: ${version}`);
+readmeContent = readmeContent.replace(/:addjs:v.\../, `:addjs:${version}`);
 
 writeFileSync('README.md', readmeContent, { encoding: 'utf8' });
 
