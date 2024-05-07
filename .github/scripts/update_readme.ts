@@ -1,6 +1,12 @@
 
 const version: string | undefined = Deno.env.get('VERSION');
 
+const output: string | undefined = Deno.env.get('OUTPUT');
+
+console.log(`version is: ${version}`);
+console.log(`output is: ${output} ... type: ${typeof output}`);
+
+
 if (!version) {
     throw new Error('VERSION environment variable not found.');
 }
