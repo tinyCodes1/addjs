@@ -39,5 +39,5 @@ jobs:
         run: deno run --allow-read --allow-write --allow-env .github/scripts/update_readme.ts
         env:
           VERSION: ${{ steps.get_version.outputs.VERSION }}
-          OUTPUT: ${{ steps.ref.outputs.GITHUB }}
+          OUTPUT: ${{ $GITHUB_REF }}
 
