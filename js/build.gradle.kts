@@ -7,8 +7,13 @@ plugins {
 
 }
 
-group = "com.github.tinyCodes1"
-version = "v1.8"
+val gitId = "com.github.tinyCodes1"
+val tag = "v1.8"
+val repo = "addjs"
+
+group = gitId
+version = tag
+
 
 android {
     namespace = "com.tinycode.js"
@@ -81,9 +86,9 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "com.github.tinyCodes1"
-                artifactId = "addjs"
-                version = "v1.8"
+                groupId = gitId
+                artifactId = repo
+                version = tag
             }
         }
     }
