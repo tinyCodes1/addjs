@@ -33,7 +33,7 @@ jobs:
 
       - name: Set output
         id: ref
-        run: echo "${GITHUB_REF}" >> $GITHUB
+        run: echo "GITHUB=$GITHUB_REF" >> $GITHUB
 
       - name: Run Deno script
         run: deno run --allow-read --allow-write --allow-env .github/scripts/update_readme.ts
