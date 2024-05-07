@@ -14,6 +14,6 @@ if (!version) {
 
 let readmeContent: string = Deno.readTextFileSync('readme.md');
 
-readmeContent = readmeContent.replace(/:addjs:v[\d]*\.[\d]*/,`:addjs:v${version}`) ;
+readmeContent = readmeContent.replace(/:addjs:v[\d]*\.[\d]*/, `:addjs:${version}`) ;
 Deno.writeTextFileSync('readme.md', readmeContent);
 
