@@ -1,0 +1,25 @@
+name : update data with github action.
+
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Execute Deno script
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: '1.x'
+
+      - name: Run Deno script
+        run: deno run --allow-read --allow-write update-readme.ts
+        env:
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
+
