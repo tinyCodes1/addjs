@@ -6,7 +6,7 @@
 ## Usage (Gradle kotlin DSL):
 ---
 
-1. Add maven("https://jitpack.io") to settings.gradle.kts  
+1. Add maven("https://jitpack.io") to settings.gradle.kts,
    so it looks something like this :
 
 ```
@@ -19,21 +19,21 @@ dependencyResolutionManagement {
 }
 ```
 
-2. Add dependencies in build.gradle.kts (Module:app)
+2. Add dependencies in build.gradle.kts (Module:app) eg.
 
 ```
 dependencies {
-   implementation("com.github.tinyCodes1:addjs:v1.7")
+   implementation("com.github.tinyCodes1:addjs:v1.8")
 }
 ```
 
 3. Add as interface in android webview
 
 ```java
-webviewName.addJavascriptInterface(WebInterface(this),"Android")
+webviewName.addJavascriptInterface(WebInterface(this), "Android");
 ```
 
-4. Functions will be added to webpage javascript. Now functions can be used as Android prefix. eg
+4. Functions will be added to webpage javascript. Now functions can be used as Android prefix. eg.
 
 ```java
 Android.show("Hello world");
