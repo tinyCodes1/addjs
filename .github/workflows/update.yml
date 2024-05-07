@@ -25,5 +25,5 @@ jobs:
       - name: Run Deno script
         run: deno run --allow-read --allow-write --allow-env .github/scripts/update_readme.ts
         env:
-          OUTPUT: $OUTPUT
+          OUTPUT: ${{OUTPUT}}
 
