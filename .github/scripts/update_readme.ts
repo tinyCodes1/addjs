@@ -12,9 +12,9 @@ if (!version) {
     throw new Error('VERSION environment variable not found.');
 }
 
-let readmeContent: string = Deno.readTextFileSync('README.md');
+let readmeContent: string = Deno.readTextFileSync('readme.md');
 
 readmeContent = readmeContent.replace(/:addjs:v.\../, `:addjs:${version}`);
 
-Deno.writeTextFileSync('README.md', readmeContent);
+Deno.writeTextFileSync('readme.md', readmeContent);
 
