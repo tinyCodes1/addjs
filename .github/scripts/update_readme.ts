@@ -1,8 +1,8 @@
 const output: string | undefined = Deno.env.get('OUTPUT');
 
-console.log(`output is: ${output} ... type: ${typeof output}`);
 
 if (output) {
+console.log(`output is: ${output.toString()} ... type: ${typeof output}`);
  const version = output.replace("/refs/tags/", "")
 console.log(`version: ` + output.replace("/refs/tags/", ""))
 
