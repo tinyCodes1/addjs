@@ -18,20 +18,7 @@ jobs:
         with:
           deno-version: '1.x'
 
-      - name: get working directory
-        run: ls -a -l 
-
-
-      - name: Extract version tag
-        id: get_version
-        run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/}"
-
-
-      - name: Extract ref tag
-        id: get_ref
-        run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/}"
-
-      - name: Set output
+      - name: Get variables
         id: ref
         run: echo "GITHUB=$GITHUB_REF" 
 
@@ -39,5 +26,5 @@ jobs:
         run: deno run --allow-read --allow-write --allow-env .github/scripts/update_readme.ts
         env:
           VERSION: ${{ steps.get_version.outputs.VERSION }}
-          OUTPUT: ${{ $GITHUB_REF }}
+          OUTPUT: ${{ steps.ref.outputs.GITHUB }}
 
