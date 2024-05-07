@@ -1,4 +1,3 @@
-import { readFileSync, writeFileSync } from 'https://deno.land/std/fs/mod.ts';
 
 const version: string | undefined = Deno.env.get('VERSION');
 
@@ -6,9 +5,9 @@ if (!version) {
     throw new Error('VERSION environment variable not found.');
 }
 
-let readmeContent: string = readFileSync('README.md', { encoding: 'utf8' });
+let readmeContent: string = Deno.readTextFileSync('README.md');
 
 readmeContent = readmeContent.replace(/:addjs:v.\../, `:addjs:${version}`);
 
-writeFileSync('README.md', readmeContent, { encoding: 'utf8' });
+Deno.writeTextFileSync('README.md', readmeContent);
 
