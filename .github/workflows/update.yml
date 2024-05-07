@@ -18,8 +18,12 @@ jobs:
         with:
           deno-version: '1.x'
 
-      - name: Run Deno script
-        run: deno run --allow-read --allow-write ../scripts/update_readme.ts
-        env:
-          VERSION: ${{ steps.get_version.outputs.VERSION }}
+- name: get working directory
+  run: echo $PWD
+
+
+- name: Run Deno script
+  run: deno run --allow-read --allow-write ../scripts/update_readme.ts
+  env:
+    VERSION: ${{ steps.get_version.outputs.VERSION }}
 
