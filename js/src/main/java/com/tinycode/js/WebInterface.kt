@@ -71,17 +71,17 @@ class WebInterface(private var context: Context) {
     ): String {
         val listReturn = JSONObject()
 
-        fun listFilesInner(dir: DocumentFile, list: JSONObject) {
+        fun listFilesInner(dir: DocumentFile, list: JSONObject, ext: String, recurse: Boolean) {
             if (dir.isFile) {
                 if ((dir.name?.lowercase()
-                        ?.endsWith(extension.lowercase()) == true) || extension == "none"
+                        ?.endsWith(ext.lowercase()) == true) || ext == "none"
                 ) dir.name?.let {
                     list.put(it, dir.uri)
                 }
             } else if (dir.isDirectory) {
-                if (recursive) {
+                if (recurse) {
                     dir.listFiles().forEach { childFile ->
-                        listFilesInner(childFile, list)
+                        listFilesInner(childFile, list, ext, true)
                     }
                 }
             } else {
@@ -93,7 +93,7 @@ class WebInterface(private var context: Context) {
         checkUri(uri)
         val documentFile = DocumentFile.fromTreeUri(context, uri)
         if (documentFile != null) {
-            listFilesInner(documentFile, listReturn)
+            listFilesInner(documentFile, listReturn, extension, recursive)
         }
         return JSONObject().put(returnKey, listReturn).toString()
     }
