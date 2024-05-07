@@ -1,13 +1,9 @@
-const version: string | undefined = Deno.env.get('VERSION');
+const ref : string | undefined = Deno.env.get('GITHUB_REF');
 
-
-const args = Deno.args[0];
-console.log(`args is : ` + args) ;
-
-if (version) {
- const versionNo = version.replace("/refs/tags/", "")
-console.log(`output is: ${versionNo} ... type: ${typeof versionNo}`);
-console.log(`version: ` + versionNo.replace("/refs/tags/", ""))
+if (ref) {
+ const version = ref.replace("/refs/tags/", "")
+console.log(`output is: ${version} ... type: ${typeof version}`);
+console.log(`version: ` + version.replace("/refs/tags/", ""))
 
 console.log(`current directory is : ${Deno.cwd()}`);
 
