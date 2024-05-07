@@ -9,5 +9,9 @@ if (ref) {
 console.log(readmeContent);
     readmeContent = readmeContent.replace(/simple/g, `complex`) ;
 //    readmeContent = readmeContent.replace(/:addjs:v.*\..*\"/g, `:addjs:${version}`) ;
+try {
     Deno.writeTextFileSync('readme.md', readmeContent);
+} catch (error) {
+    console.log(`error: ` + error)
+}
 }
