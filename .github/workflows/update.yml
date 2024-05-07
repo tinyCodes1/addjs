@@ -20,7 +20,7 @@ jobs:
 
       - name: Get variables
         id: ref
-        run: echo "GITHUB_REF=$GITHUB_REF" >> $GITHUB_ENV
+        run: echo "GITHUB_REF=$GITHUB_REF" 
 
       - name: check value of output
         run: echo value of output is $GITHUB_REF
