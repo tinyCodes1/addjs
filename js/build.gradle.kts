@@ -8,7 +8,7 @@ plugins {
 }
 
 val gitId = "com.github.tinyCodes1"
-val tag = "v1.8"
+val tag = "v1.9"
 val repo = "addjs"
 
 group = gitId

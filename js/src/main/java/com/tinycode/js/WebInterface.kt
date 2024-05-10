@@ -104,20 +104,24 @@ class WebInterface(private var context: Context) {
      */
     @JavascriptInterface
     fun getFile(uriString: String): String? {
-        val uri = Uri.parse(uriString)
-        val file = DocumentFile.fromSingleUri(context, uri)
-        return if (file?.isFile == true) {
-            val fileInputStream = context.contentResolver.openInputStream(file.uri)
-            val byteArray = fileInputStream?.readBytes()
-            fileInputStream?.close()
-            val str64 = Base64.getEncoder().encodeToString(byteArray)
-            val fileData = JSONObject()
-            fileData.put("name", file.name)
-            fileData.put("type", file.type)
-            fileData.put("uri", file.uri)
-            fileData.put("base64", str64)
-            fileData.toString()
-        } else null
+        try {
+            val uri = Uri.parse(uriString)
+            val file = DocumentFile.fromSingleUri(context, uri)
+            return if (file?.isFile == true) {
+                val fileInputStream = context.contentResolver.openInputStream(file.uri)
+                val byteArray = fileInputStream?.readBytes()
+                fileInputStream?.close()
+                val str64 = Base64.getEncoder().encodeToString(byteArray)
+                val fileData = JSONObject()
+                fileData.put("name", file.name)
+                fileData.put("type", file.type)
+                fileData.put("uri", file.uri)
+                fileData.put("base64", str64)
+                fileData.toString()
+            } else null
+        } catch (e: Exception) {
+            return "Error in getting file $uriString"
+        }
     }
 
     /**

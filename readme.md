@@ -1,13 +1,13 @@
 # addjs [![](https://jitpack.io/v/tinyCodes1/addjs.svg)](https://jitpack.io/#tinyCodes1/addjs)
 ---
+
 @tinyCodes1/addjs is simple android module to enhance functionality of android webview.
-  
-  
-## Usage (Gradle kotlin DSL):
+
+## Usage (Gradle Kotlin DSL):
 ---
 
 1. Add maven("https://jitpack.io") to settings.gradle.kts,
-   so it looks something like this :
+   so code block looks something like this :
 
 ```
 dependencyResolutionManagement {
@@ -30,16 +30,29 @@ dependencies {
 3. Add as interface in android webview
 
 ```java
-webviewName.addJavascriptInterface(WebInterface(this), "Android");
+webViewName.addJavascriptInterface(WebInterface(this),"Android");
 ```
 
-4. Functions will be added to webpage javascript. Now functions can be used as Android prefix. eg.
+4. Functions will be added to webpage javascript. Now functions can be used as Android prefix in js/ts file. eg.
 
 ```java
 Android.show("Hello world");
 ```
-  
-  
+
+5. If you are using typescript you may like to add namespace declaration. eg.
+
+```ts {#namespace}
+declare namespace Android {
+    const listFiles : ( uriString : string , extension?: string , recursive?: boolean , returnKey?: string ) => string ;
+    const selectDirectory :(key: string) => void ;
+    const getFile:(uriStr: string) => string ;
+    const saveData:(key: string, value: string) => void ;
+    const openWith:(uriString: string) => void ;
+    const show:(toast: string) => void ;
+    const getData:(key: string) => string ;
+}
+```
+
 ## List of available functions:
 ---
 
@@ -50,4 +63,11 @@ Android.show("Hello world");
 - openWith ... open file with compatible app
 - saveData ...save string
 - getData ... returns saved string
-  
+
+further details of functions can be found in [typescript namespace](#namespace).
+
+## Sample app:
+---
+
+You may find sample app here.
+**PDF Search:**  [Google Play](https://play.google.com/store/apps/details?id=com.tinycode.pdfsearch)
