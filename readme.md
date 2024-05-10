@@ -41,7 +41,7 @@ Android.show("Hello world");
 
 5. If you are using typescript you may like to add namespace declaration. eg.
 
-```ts {#namespace}
+```ts 
 declare namespace Android {
     const listFiles : ( uriString : string , extension?: string , recursive?: boolean , returnKey?: string ) => string ;
     const selectDirectory :(key: string) => void ;
@@ -64,7 +64,7 @@ declare namespace Android {
 - saveData ...save string
 - getData ... returns saved string
 
-further details of functions can be found in [typescript namespace](#namespace).
+further details of functions can be found in typescript namespace.
 
 ## Sample app:
 ---
