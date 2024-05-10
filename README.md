@@ -69,5 +69,5 @@ further details of functions can be found in [typescript namespace](#namespace).
 ## Sample app:
 ---
 
-You may find sample app here.
+You may find sample app here.  
 **PDF Search:**  [Google Play](https://play.google.com/store/apps/details?id=com.tinycode.pdfsearch)
