@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-   implementation("com.github.tinyCodes1:addjs:v1.8")
+   implementation("com.github.tinyCodes1:addjs:v1.9")
 }
 ```
 
