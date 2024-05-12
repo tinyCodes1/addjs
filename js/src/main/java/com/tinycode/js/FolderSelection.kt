@@ -27,10 +27,10 @@ class SelectionActivity : Activity() {
         startActivityForResult(intent, FRQ)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == FRQ) {
-            if (resultCode == RESULT_OK) {
+            if ((resultCode == RESULT_OK) && (data != null)) {
                 val key = this.intent.getStringExtra("saveAs")
                 val uri: Uri? = data.data
                 uri?.let { uriTemp ->
@@ -42,10 +42,10 @@ class SelectionActivity : Activity() {
                 if (key != null) {
                     saveDataLocally(this, key, uri.toString())
                 }
-                finish()
             } else {
                 Toast.makeText(this, "Folder selection canceled", Toast.LENGTH_SHORT).show()
             }
+            finish()
         }
     }
 }

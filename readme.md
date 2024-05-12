@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-   implementation("com.github.tinyCodes1:addjs:v1.9")
+   implementation("com.github.tinyCodes1:addjs:v1.10")
 }
 ```
 
@@ -58,11 +58,11 @@ declare namespace Android {
 
 - show ... display toast message
 - selectDir ... prompt user to select folder
-- listFiles ... returns list of files
-- getFile ... returns file object with parameters name, type, uri-string, base64data-string
+- listFiles ... to get list of files from uri
+- getFile ... to get file object with parameters name, type, uri-string, base64data-string
 - openWith ... open file with compatible app
 - saveData ...save string
-- getData ... returns saved string
+- getData ... to get saved string
 
 further details of functions can be found in typescript namespace.
 

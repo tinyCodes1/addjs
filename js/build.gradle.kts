@@ -8,7 +8,7 @@ plugins {
 }
 
 val gitId = "com.github.tinyCodes1"
-val tag = "v1.9"
+val tag = "v1.10"
 val repo = "addjs"
 
 group = gitId
@@ -28,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -63,13 +63,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.kotlin.stdlib.jdk7)
 
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
-    androidTestImplementation(libs.androidx.ui.test.junit4.desktop)
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidx.core.ktx)
