@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-   implementation("com.github.tinyCodes1:addjs:v1.10")
+   implementation("com.github.tinyCodes1:addjs:v1.11")
 }
 ```
 
@@ -64,7 +64,7 @@ declare namespace Android {
 - saveData ...save string
 - getData ... to get saved string
 
-further details of functions can be found in typescript namespace.
+further details of functions can be found in typescript namespace in previous section.
 
 ## Sample app:
 ---

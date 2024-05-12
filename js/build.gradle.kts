@@ -8,7 +8,7 @@ plugins {
 }
 
 val gitId = "com.github.tinyCodes1"
-val tag = "v1.10"
+val tag = "v1.11"
 val repo = "addjs"
 
 group = gitId
@@ -28,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
